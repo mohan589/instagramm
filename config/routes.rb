@@ -1,5 +1,16 @@
 Rails.application.routes.draw do
   devise_for :users
+  
+  resources :users do
+    member do
+      get 'posts', to: 'pics#user_pics'
+    end
+    
+    collection do
+      get :explore
+    end
+  end
+  
   resources :pics do
     member do
       put 'like', to: 'pics#upvote'
@@ -8,6 +19,6 @@ Rails.application.routes.draw do
   end
   root "pics#index"
   
-  match 'users/explore' => 'users#explore', :via => :get
+  # match 'users/explore' => 'users#explore', :via => :get
 
 end
