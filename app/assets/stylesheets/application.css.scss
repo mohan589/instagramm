@@ -164,3 +164,20 @@ textarea{
  -webkit-border-radius: 100px;
  -moz-border-radius: 100px;
 }
+
+.image-upload > .user_avatar> input
+{
+   display: none;
+}
+.image-upload > label{
+  cursor:pointer;
+}
+
+.image_upload_show{
+  padding-left:25px;
+   background:url("/assets/upload.png") no-repeat top left;
+   display: inline-block;
+   height: 127px;
+   width: 113px;
+   margin: 0px 180px;
+}
