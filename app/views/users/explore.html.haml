@@ -4,6 +4,6 @@
       .panel.panel-default
         .panel-body
           %div
-            %span= link_to user.email, pics_path
+            %span= link_to user.email, posts_user_path(user)
             %span= link_to 'Follow', root_path, class: 'btn btn-default pull-right'
       

@@ -21,6 +21,10 @@ class PicsController < ApplicationController
       render 'new'
     end
   end
+  
+  def user_pics
+    @pics = User.find(params[:id]).pics
+  end
 
   def edit
 

@@ -1,6 +1,1 @@
-.col-md-12
-  #pics.transitions-enabled
-    - @pics.each do |pic|
-      .box.panel.panel-default
-        = link_to (image_tag pic.image.url), pic
-        %h2= link_to pic.title, pic_path(pic)
+= render 'load_pics', locals: { pics: @pics }
