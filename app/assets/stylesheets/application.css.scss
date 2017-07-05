@@ -16,6 +16,7 @@
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "font-awesome";
 
 body{
   background: #E9E9E9;
@@ -31,17 +32,17 @@ h1, h2, h3, h4, h5, h5, h5{
 nav{
   box-shadow: 0 1px 2px 0 rgba(82, 158, 204, 0.22);
   box-color: #529ECC;
-  background: #529ECC;
-  .navbar-brand{
-    a{
-      color: #529ECC;
-      font-weight: bold;
-      font-size: 1.6em;
-      &:hover{
-        text-decoration: none;
-      }
-    }
-  }
+  // background: #529ECC;
+  // .navbar-brand{
+  //   a{
+  //     color: #529ECC;
+  //     font-weight: bold;
+  //     font-size: 1.6em;
+  //     &:hover{
+  //       text-decoration: none;
+  //     }
+  //   }
+  // }
 }
 
 #pics{
@@ -123,4 +124,9 @@ nav{
 
 textarea{
   min-height: 250px;
+}
+
+.comments_data{
+  min-height: 30px !important;
+  width: 100%;
 }

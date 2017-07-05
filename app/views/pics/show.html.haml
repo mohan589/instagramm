@@ -17,9 +17,20 @@
               = link_to like_pic_path(@pic), method: :put, class: 'btn btn-default' do
                 %span.glyphicon.glyphicon-thumbs-up
                 = @pic.get_upvotes.size
-              = link_to like_pic_path(@pic), method: :put, class: 'btn btn-default' do
+              %a.btn.btn-default{href: '#'}
                 %span.glyphicon.glyphicon-comment
-                = @pic.get_upvotes.size
+                = @pic.comments.size
               - if user_signed_in?
                 = link_to 'Edit', edit_pic_path, class: 'btn btn-info'
                 = link_to 'Delete', pic_path, method: :delete, data: {confirm: "Are your sure!"}, class: 'btn btn-danger'
+          .col-md-12
+            - @pic.comments.each do |com|
+              %ul
+                %li
+                  %span= com.user.try(:email)
+                  %span= com.comments
+          .col-md-12
+            = simple_form_for [@pic, Comment.new], :remote => true do |c|
+              .form-group
+                = c.input :comments, input_html: {class: 'form-control comments_data', :placeholder => 'Add comments'}
+              = c.button :submit, class: 'btn btn-info'
