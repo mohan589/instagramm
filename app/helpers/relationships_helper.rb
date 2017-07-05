@@ -1,2 +1,2 @@
-module RelationShiopsHelper
+module RelationshipsHelper
 end
