@@ -3,7 +3,12 @@
     .row
       .panel.panel-default
         .panel-body
-          %div
+          %div.col-md-3
+            - if user.avatar.exists?
+              = image_tag user.avatar.url(:medium), class: 'img-circular-explore'
+            - else
+              = image_tag '/assets/upload.png', class: 'img-circular-explore'
+          %div.col-md-7
             %span= link_to user.email, posts_user_path(user)
             %span= link_to 'Follow', root_path, class: 'btn btn-default pull-right'
       

@@ -1,10 +1,14 @@
-.col-md-6.col-md-offset-3
-  .row
-    .panel.panel-default
-      .panel-body
-        = simple_form_for [current_user], :remote => true do |c|
+- if current_user && !current_user.avatar.exists?
+  .col-md-6.col-md-offset-3
+    .row
+      .panel.panel-default
+        .panel-body
+        = simple_form_for current_user, method: :put, html: { multipart: true } do |f|
           .image-upload
             %label{:for => "user_avatar"}
-              %div.image_upload_show
-            = c.input :avatar, :label => "", input_html: {class: 'form-control'}, :onchange => "$(this).parents('form').submit();"
+              .img-circular
+                = profile_avatar_select(@user)
+              = f.input :avatar, onChange: 'loadFile(event)'
+          .form-group.text-center
+          = f.submit "Update Profile", class: 'btn btn-success'
 = render 'load_pics', locals: { pics: @pics }

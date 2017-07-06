@@ -9,7 +9,9 @@ Rails.application.routes.draw do
     member do
       get 'posts', to: 'pics#user_pics'
     end
-    
+    member do
+      put 'update', to: 'users#update'
+    end
     collection do
       get :explore
     end

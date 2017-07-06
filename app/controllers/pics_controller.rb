@@ -23,7 +23,8 @@ class PicsController < ApplicationController
   end
   
   def user_pics
-    @pics = User.find(params[:id]).pics
+    @user = User.find(params[:id])
+    @pics = @user.pics
   end
 
   def edit
