@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  
   get 'relationships/follow_user'
 
   get 'relationships/unfollow_user'
@@ -15,6 +16,10 @@ Rails.application.routes.draw do
     collection do
       get :explore
     end
+  end
+  
+  resources :categories do
+    resources :jobs
   end
   
   resources :pics do

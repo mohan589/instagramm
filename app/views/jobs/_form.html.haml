@@ -1,0 +1,23 @@
+= simple_form_for @job do |f|
+  - if @job.errors.any?
+    #errors
+      %h2
+      = pluralize(@job.errors.count, 'error')
+      prevented this Pic from saving
+      %ul
+        - @job.errors.full_messages.each do |msg|
+          %li= msg
+
+  .form-group
+    = f.input :title, input_html: {class: 'form-control'}
+  .form-group
+    = f.input :description, input_html: {class: 'form-control'}
+  .form-group
+    = f.input :exp_required, input_html: {class: 'form-control'}
+  .form-group
+    = f.input :salary, input_html: {class: 'form-control'}
+  .form-group
+    = f.input :location, input_html: {class: 'form-control'}
+  .form-group
+    = f.input :comapny_name, input_html: {class: 'form-control'}
+  = f.button :submit, class: 'btn btn-info'

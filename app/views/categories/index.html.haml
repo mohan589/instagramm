@@ -1,0 +1,9 @@
+#categories.row
+  .panel.panel-default
+    .panel-body
+      - @categories.each do |category|
+        .col-md-3.box.text-center
+          = link_to category.job_category_name, category_jobs_path(category), class: 'thumbnail'
+
+%div#new_category
+= link_to 'New Category', new_category_path, id: 'new_category_link', :remote => true, class: 'btn btn-primary'

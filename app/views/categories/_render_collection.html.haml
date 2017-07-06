@@ -1,0 +1,5 @@
+.panel.panel-default
+  .panel-body
+    - @categories.each do |category|
+      .col-md-3.box.text-center
+        = link_to category.job_category_name, category, class: 'thumbnail'

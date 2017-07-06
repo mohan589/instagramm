@@ -1,0 +1,3 @@
+$("#new_category_link").hide();
+$("#new_category").show();
+$("#new_category").append("<%= escape_javascript(render :partial => 'categories/form', locals: {category: @category} ) %>");

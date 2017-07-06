@@ -10,7 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170705135430) do
+ActiveRecord::Schema.define(version: 20170706134938) do
+
+  create_table "categories", force: :cascade do |t|
+    t.string   "job_category_name"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
 
   create_table "comments", force: :cascade do |t|
     t.text     "comments"
@@ -28,6 +34,18 @@ ActiveRecord::Schema.define(version: 20170705135430) do
     t.index ["follower_id"], name: "index_follows_on_follower_id"
     t.index ["following_id", "follower_id"], name: "index_follows_on_following_id_and_follower_id", unique: true
     t.index ["following_id"], name: "index_follows_on_following_id"
+  end
+
+  create_table "jobs", force: :cascade do |t|
+    t.string   "title"
+    t.text     "description"
+    t.string   "exp_required"
+    t.string   "salary"
+    t.string   "location"
+    t.string   "company_name"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.integer  "category_id"
   end
 
   create_table "pics", force: :cascade do |t|

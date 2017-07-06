@@ -1,0 +1,9 @@
+%h1 Listing All #{@category.job_category_name.camelize} jobs
+-if @jobs.blank?
+  .row
+    .col-md-6.col-md-offset-5
+      = 'No Jobs found'
+      = link_to "Add New Job", new_category_job_path(@category), class: 'btn btn-default'
+- else
+  .col-md-6
+    = 'Jobs Found'

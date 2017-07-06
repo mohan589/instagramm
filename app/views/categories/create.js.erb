@@ -1,0 +1,3 @@
+$("#categories").html("").append("<%= escape_javascript(render :partial => 'categories/render_collection', locals: {categories: @categories}) %>");
+$("#new_category").html("");
+$("#new_category_link").show();
