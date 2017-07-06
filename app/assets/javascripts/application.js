@@ -16,9 +16,3 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
-
-$(document).ready(function(){
-    $('#user_avatar').change(function(){
-        $("#edit_user_2").submit();
-    });
-});
