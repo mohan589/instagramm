@@ -1,17 +1,18 @@
 class JobsController < ApplicationController
-  before_action :set_category, only: [:index, :new]
+  before_action :set_category, only: [:index, :new, :create]
   
   def index
-    @jobs = @category.jobs.all
+    @jobs = @category.current_category_jobs.all
   end
   
   def new
-    @job = @category.jobs.build(job_params)
+    @job = @category.current_category_jobs.build(job_params)
   end
 
   def create
-    if @category.jobs.create(job_params)
-      redirect_to @category, notice: "New Job been added successfully!"
+    @job = @category.current_category_jobs.build(job_params)
+    if @job.save
+      redirect_to category_jobs_path(@category), notice: "New Job been added successfully!"
     else
       render 'new'
     end

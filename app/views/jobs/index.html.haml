@@ -5,5 +5,12 @@
       = 'No Jobs found'
       = link_to "Add New Job", new_category_job_path(@category), class: 'btn btn-default'
 - else
-  .col-md-6
-    = 'Jobs Found'
+  .col-md-12
+    - @jobs.each do |job|
+      .row
+        .panel.panel-default
+          .panel-body
+            .col-md-1
+              = link_to job.title, "", class: 'btn btn-info'
+  
+  = link_to "Add New Job", new_category_job_path(@category), class: 'btn btn-default'
