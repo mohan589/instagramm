@@ -15,11 +15,10 @@ class CategoriesController < ApplicationController
     
     def create
         @category = Category.create(category_params)
-        
         if @category.save
             @categories = Category.all.order("created_at DESC")
         else
-            render 'new'
+            
         end
     end
     

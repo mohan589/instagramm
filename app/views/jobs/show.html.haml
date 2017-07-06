@@ -1,0 +1,23 @@
+.row
+  .panel.panel-default
+    .panel-body
+      .col-md-6.col-md-offset-3
+        %table.table
+          %tr
+            %td Title
+            %td= @job.title
+          %tr
+            %td Description
+            %td= @job.description
+          %tr
+            %td Experience Required
+            %td= @job.exp_required
+          %tr
+            %td Salary
+            %td= @job.salary
+          %tr
+            %td Location
+            %td= @job.location
+          %tr
+            %td CompanyName
+            %td= @job.company_name

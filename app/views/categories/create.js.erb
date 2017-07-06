@@ -1,3 +1,7 @@
-$("#categories").html("").append("<%= escape_javascript(render :partial => 'categories/render_collection', locals: {categories: @categories}) %>");
-$("#new_category").html("");
-$("#new_category_link").show();
+<% if @category.errors.any? %>
+  alert("ERROR(S): <%= j @category.errors.full_messages.join('; ') %>")
+<% else %>
+    $("#categories").html("").append("<%= escape_javascript(render :partial => 'categories/render_collection', locals: {categories: @categories}) %>");
+    $("#new_category").html("");
+    $("#new_category_link").show();
+<% end %>

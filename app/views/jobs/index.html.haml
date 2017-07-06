@@ -6,11 +6,12 @@
       = link_to "Add New Job", new_category_job_path(@category), class: 'btn btn-default'
 - else
   .col-md-12
-    - @jobs.each do |job|
-      .row
-        .panel.panel-default
-          .panel-body
+    .row
+      .panel.panel-default
+        .panel-body
+          - @jobs.each do |job|
             .col-md-1
-              = link_to job.title, "", class: 'btn btn-info'
+              = link_to job.title, category_job_path(@category, job), class: 'btn btn-info'
   
   = link_to "Add New Job", new_category_job_path(@category), class: 'btn btn-default'
+  = link_to "Back", categories_path, class: 'btn btn-default'
