@@ -1,17 +1,31 @@
-%h1 Listing All #{@category.job_category_name.camelize} jobs
+.col-lg-3.col-lg-offset-1
+  .panel.panel-default
+    .panel-body
+      .col-md-3
+        Testing
 -if @jobs.blank?
   .row
-    .col-md-6.col-md-offset-5
+    .col-lg-6
       = 'No Jobs found'
       = link_to "Add New Job", new_category_job_path(@category), class: 'btn btn-default'
 - else
-  .col-md-12
-    .row
+  .col-lg-6
+    - @jobs.each do |job|
       .panel.panel-default
         .panel-body
-          - @jobs.each do |job|
-            .col-md-1
-              = link_to job.title, category_job_path(@category, job), class: 'btn btn-info'
-  
-  = link_to "Add New Job", new_category_job_path(@category), class: 'btn btn-default'
-  = link_to "Back", categories_path, class: 'btn btn-default'
+          .col-lg-12
+            .row
+              .col-lg-12
+                %b= link_to job.title, category_job_path(@category, job)
+            .row
+              .col-lg-12
+                .label.label-default= job.company_name
+            .row
+              .col-lg-3
+                %span= job.exp_required
+              .col-lg-3
+                %p= job.exp_required  
+.row
+  .col-lg-3
+    = link_to "Add New Job", new_category_job_path(@category), class: 'btn btn-default'
+    = link_to "Back", categories_path, class: 'btn btn-default'

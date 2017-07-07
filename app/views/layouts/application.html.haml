@@ -18,6 +18,21 @@
             %li= link_to 'Sign Out', destroy_user_session_path, method: :delete
           %ul.nav.navbar-nav.navbar-left
             %li= link_to 'Search Relevant jobs', categories_path
+          #bs-example-navbar-collapse-1.collapse.navbar-collapse
+            %ul.nav.navbar-nav
+              %li
+                %a{:href => "#"}
+                  Link
+                  %span.sr-only (current)
+              %li
+                %a{:href => "#"} Link
+              %li.dropdown
+                %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+                  Jobs
+                  %span.caret
+                %ul.dropdown-menu
+                  - job_categories.each do |category|
+                    %li= link_to category.job_category_name.camelize, category_jobs_path(category)
         - else
           %ul.nav.navbar-nav.navbar-right
             %li= link_to 'Join', new_user_registration_path
