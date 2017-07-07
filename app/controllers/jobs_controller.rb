@@ -1,5 +1,5 @@
 class JobsController < ApplicationController
-  before_action :set_category, only: [:index, :new, :create]
+  before_action :set_category, only: [:index, :new, :create, :show]
   before_action :set_job, only: [:show]
   
   def index

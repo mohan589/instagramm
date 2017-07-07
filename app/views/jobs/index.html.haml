@@ -56,27 +56,7 @@
 - else
   .col-lg-6
     - @jobs.each do |job|
-      .panel.panel-default
-        .panel-body
-          .col-lg-12.no-padding
-            .col-lg-12.no-padding
-              %b= link_to job.title, category_job_path(@category, job)
-            .col-lg-12.no-padding
-              .label.label-default= job.company_name
-            .col-lg-3.no-padding.fa.fa-suitcase
-              %span= job.exp_required
-            .col-lg-3.no-padding.fa.fa-location-arrow
-              = job.location
-        .panel-footer
-          .col-lg-3.no-padding.fa.fa-inr
-            %span.fa.fa-heart.pull-left
-            = job.salary.strip
-          .col-lg-3.no-padding.glyphicon.glyphicon-user
-            PostedBy
-          .col-lg-3.no-padding
-            Test
-          .col-lg-3.no-padding
-            = time_ago_in_words(job.created_at) + ' ago'
+      = render partial: 'job', locals: {job: job, category: @category}
 .row
   .col-lg-3
     = link_to "Add New Job", new_category_job_path(@category), class: 'btn btn-default'
