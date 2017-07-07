@@ -1,30 +1,82 @@
 .col-lg-3.col-lg-offset-1
   .panel.panel-default
     .panel-body
-      .col-md-3
-        Testing
+      .col-lg-12
+        Find Jobs For
+      .col-lg-12
+        %hr 
+          Testing
+      .col-lg-12
+        %hr 
+          Skills
+  .panel.panel-default
+    .panel-body
+      .col-lg-12
+        Refine Results
+      .col-lg-12
+        %hr 
+          Freshness
+      .col-lg-12
+        %hr 
+          .dropdown
+            %button#dropdownMenu1.btn.btn-default.dropdown-toggle{"aria-expanded" => "true", "aria-haspopup" => "true", "data-toggle" => "dropdown", :type => "button"}
+              Dropdown
+              %span.caret
+            %ul.dropdown-menu{"aria-labelledby" => "dropdownMenu1"}
+              %li
+                %a{:href => "#"} Action
+              %li
+                %a{:href => "#"} Another action
+              %li
+                %a{:href => "#"} Something else here
+              %li.divider{:role => "separator"}
+              %li
+                %a{:href => "#"} Separated link
+      .col-lg-12
+        %hr 
+          .dropdown
+            %button#dropdownMenu1.btn.btn-default.dropdown-toggle{"aria-expanded" => "true", "aria-haspopup" => "true", "data-toggle" => "dropdown", :type => "button"}
+              Dropdown
+              %span.caret
+            %ul.dropdown-menu{"aria-labelledby" => "dropdownMenu1"}
+              %li
+                %a{:href => "#"} Action
+              %li
+                %a{:href => "#"} Another action
+              %li
+                %a{:href => "#"} Something else here
+              %li.divider{:role => "separator"}
+              %li
+                %a{:href => "#"} Separated link          
+
 -if @jobs.blank?
-  .row
-    .col-lg-6
-      = 'No Jobs found'
-      = link_to "Add New Job", new_category_job_path(@category), class: 'btn btn-default'
+  .col-lg-6
+    = 'No Jobs found'
+    = link_to "Add New Job", new_category_job_path(@category), class: 'btn btn-default'
 - else
   .col-lg-6
     - @jobs.each do |job|
       .panel.panel-default
         .panel-body
-          .col-lg-12
-            .row
-              .col-lg-12
-                %b= link_to job.title, category_job_path(@category, job)
-            .row
-              .col-lg-12
-                .label.label-default= job.company_name
-            .row
-              .col-lg-3
-                %span= job.exp_required
-              .col-lg-3
-                %p= job.exp_required  
+          .col-lg-12.no-padding
+            .col-lg-12.no-padding
+              %b= link_to job.title, category_job_path(@category, job)
+            .col-lg-12.no-padding
+              .label.label-default= job.company_name
+            .col-lg-3.no-padding.fa.fa-suitcase
+              %span= job.exp_required
+            .col-lg-3.no-padding.fa.fa-location-arrow
+              = job.location
+        .panel-footer
+          .col-lg-3.no-padding.fa.fa-inr
+            %span.fa.fa-heart.pull-left
+            = job.salary.strip
+          .col-lg-3.no-padding.glyphicon.glyphicon-user
+            PostedBy
+          .col-lg-3.no-padding
+            Test
+          .col-lg-3.no-padding
+            = time_ago_in_words(job.created_at) + ' ago'
 .row
   .col-lg-3
     = link_to "Add New Job", new_category_job_path(@category), class: 'btn btn-default'
