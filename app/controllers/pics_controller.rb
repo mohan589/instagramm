@@ -32,7 +32,7 @@ class PicsController < ApplicationController
   end
 
   def update
-    if @pic.update(pic_params)
+    if @pic.edit(pic_params)
       redirect_to @pic, notice: 'Contgrats pic was udpated'
     else
       render 'edit'
