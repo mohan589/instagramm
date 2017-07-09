@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   
+  namespace :admin do
+    resources :skills
+  end
+
   get 'relationships/follow_user'
 
   get 'relationships/unfollow_user'
@@ -11,7 +15,7 @@ Rails.application.routes.draw do
       get 'posts', to: 'pics#user_pics'
     end
     member do
-      put 'update', to: 'users#update'
+      put 'edit', to: 'users#edit'
     end
     collection do
       get :explore

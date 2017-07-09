@@ -1,0 +1,6 @@
+%h1 Skills List
+.col-lg-3
+  %ul
+    - @skills.each do |skill|
+      %li= skill.name
+= link_to 'Add New Skill', new_admin_skill_path, class: 'btn btn-default'

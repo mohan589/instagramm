@@ -16,7 +16,7 @@ class JobsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should get update" do
+  test "should get edit" do
     get jobs_update_url
     assert_response :success
   end

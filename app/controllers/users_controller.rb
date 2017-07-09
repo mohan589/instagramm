@@ -7,7 +7,7 @@ class UsersController < ApplicationController
 
     def update
 
-        if @user.update(user_params)
+        if @user.edit(user_params)
             redirect_to root_path
         else
           redirect_to root_path, notice: 'Opps something went wrong!'
